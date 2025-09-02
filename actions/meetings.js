@@ -85,6 +85,7 @@ export async function cancelMeeting(meetingId) {
     await calendar.events.delete({
       calendarId: "primary",
       eventId: meeting.googleEventId,
+      sendUpdates: "all", // Send cancellation emails to attendees
     });
   } catch (error) {
     console.error("Failed to delete event from Google Calendar:", error);
